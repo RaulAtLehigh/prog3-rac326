@@ -1,24 +1,8 @@
 // Raul Contreras (RAC326) 
 
-const { createDiffieHellman } = require("crypto");
 const express = require("express"); 
 const path = require("path");
-//const sprintf = require("sprintf-js").sprintf;
-const livereload = require("livereload");
-const connectLiveReload = require("connect-livereload");
 const app = express();
-
-//Livereload code//from stack overflow, want to see changes as soon as I make them rather than always having to reload
-const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(path.join(__dirname, "."));
-liveReloadServer.server.once("connection", () => {
-  setTimeout(() => {
-    liveReloadServer.refresh("/");
-  }, 100);
-});
-app.use(connectLiveReload());
-//End of livereload code
-
 
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs"); 
